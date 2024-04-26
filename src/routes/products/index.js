@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const { getALLProducts, postProduct } = require('../../api/products/controllers');
+const { getALLProducts, addProduct } = require('../../api/products/controllers');
 
-router.get("/allProperties", getALLProducts);
-router.post("/markdown", postProduct);
+router.get("/all-products", getALLProducts);
+router.post("/add-product", addProduct);
 
 module.exports = router;

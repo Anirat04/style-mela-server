@@ -1,7 +1,7 @@
 const getALLProducts = require('./getALLProducts')
-const postProduct = require('./postProduct')
+const addProduct = require('./addProduct')
 
 module.exports = {
     getALLProducts,
-    postProduct
+    addProduct
 }
