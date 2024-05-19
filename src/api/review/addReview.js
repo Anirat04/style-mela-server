@@ -3,6 +3,7 @@ const Review = require("../../models/Review");
 const addReview = async (req, res) => {
   try {
     const {
+      productID,
       reviewText,
       reviewerName,
       reviewerEmail,
@@ -13,6 +14,7 @@ const addReview = async (req, res) => {
     // console.log(reviewText);
 
     const review = new Review({
+      productID,
       reviewText,
       reviewerName,
       reviewerEmail,

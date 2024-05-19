@@ -1,6 +1,7 @@
 const { model, Schema } = require("mongoose");
 
 const reviewSchema = new Schema({
+  productID:String,
   reviewText: String,
   reviewerName: String,
   reviewerEmail: String,
