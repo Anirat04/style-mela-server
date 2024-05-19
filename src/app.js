@@ -1,44 +1,43 @@
-const express = require('express');
-const applyMiddleware = require('./middlewares/applyMiddleware');
-const connectDB = require('./db/connectDB');
-require('dotenv').config();
+const express = require("express");
+const applyMiddleware = require("./middlewares/applyMiddleware");
+const connectDB = require("./db/connectDB");
+require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
 
 // Routers
-const productRoutes = require("./routes/products")
-
+const productRoutes = require("./routes/products");
+const reviewRoutes = require("./routes/reviews");
 
 // Add Middleware
-applyMiddleware(app)
+applyMiddleware(app);
 
-app.use(productRoutes)
+app.use(productRoutes);
+app.use(reviewRoutes);
 
-
-app.get('/health', (req, res) => {
-    res.send('Server is running')
-})
-
+app.get("/health", (req, res) => {
+  res.send("Server is running");
+});
 
 // Error Handling Starts
 app.all("*", (req, res, next) => {
-    const error = new Error(`The  Requested URL is invalid: ${req.url}`)
-    error.status = 404
-    next(error)
-})
+  const error = new Error(`The  Requested URL is invalid: ${req.url}`);
+  error.status = 404;
+  next(error);
+});
 
 app.use((err, req, res, next) => {
-    res.status(err.status || 500).json({
-        message: err.message
-    })
-})
+  res.status(err.status || 500).json({
+    message: err.message,
+  });
+});
 // Error Handling Ends
 
 const main = async () => {
-    await connectDB()
-    app.listen(port, (req, res) => {
-        console.log(`Server is running on ${port}`);
-    })
-}
+  await connectDB();
+  app.listen(port, (req, res) => {
+    console.log(`Server is running on ${port}`);
+  });
+};
 
-main()
+main();
