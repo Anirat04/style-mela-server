@@ -5,7 +5,7 @@ const reviewSchema = new Schema({
   reviewText: String,
   reviewerName: String,
   reviewerEmail: String,
-  // reviewRating: data.rating,
+  reviewRating: String,
   date: String,
 });
 

@@ -3,7 +3,6 @@ const {
   getALLProducts,
   addProduct,
   getSingleProduct,
-  addReview,
 } = require("../../api/products/controllers");
 
 router.get("/all-products", getALLProducts);

@@ -1,4 +1,4 @@
-const Review = require("../../models/Review");
+const Review = require("../../../models/Review");
 
 const addReview = async (req, res) => {
   try {
@@ -7,18 +7,16 @@ const addReview = async (req, res) => {
       reviewText,
       reviewerName,
       reviewerEmail,
-      // reviewRating,
+      reviewRating,
       date,
     } = req.body.review;
-
-    // console.log(reviewText);
 
     const review = new Review({
       productID,
       reviewText,
       reviewerName,
       reviewerEmail,
-      // reviewRating,
+      reviewRating,
       date,
     });
 
