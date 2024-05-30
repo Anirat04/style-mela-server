@@ -22,7 +22,7 @@ const addReview = async (req, res) => {
 
     // const review = req.body.review;
 
-    // console.log(review);
+    console.log(review);
 
     await review.save();
 
